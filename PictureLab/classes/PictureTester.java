@@ -24,6 +24,7 @@ public class PictureTester
     caterpillar.explore();
     caterpillar.mirrorVertical();
     caterpillar.explore();
+   
   }
   
   /** Method to test mirrorTemple */
