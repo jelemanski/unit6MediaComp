@@ -266,5 +266,12 @@ public class Picture extends SimplePicture
     beach.zeroBlue();
     beach.explore();
   }
+  public void cropAndCopy( Picture sourcePicture, int startSourceRow, int endSourceRow, int startSourceCol, int endSourceCol,
+         int startDestRow, int startDestCol )
+    {
+
+        
+        
+    }
   
 } // this } is the end of class Picture, put all new methods before this
