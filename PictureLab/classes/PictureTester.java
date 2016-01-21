@@ -88,11 +88,19 @@ public class PictureTester
         swan.explore();
     }
 
-    public static void testCopy()
-    {
-       Picture swan = new Picture("swan.jpg");
-       swan.copy();
-       swan.explore();
+    //public static void testCopy()
+    //{
+    //   Picture swan = new Picture("kanye.jpg");
+    //   swan.copy();
+    //   swan.explore();
+   // }
+   
+   public static void testjcollage()
+   {
+       Picture album = new Picture(1000,1000);
+       album.jcollage();
+       album.explore();
+       
     }
     
     /** Main method for testing.  Every class can have a main
@@ -115,8 +123,9 @@ public class PictureTester
         //testMirrorArms();
         //testMirrorGull();
         //testMirrorDiagonal();
-        //testCollage();
-        testCopy();
+        testCollage();
+        testjcollage();
+        //testCopy();
         //testEdgeDetection();
         //testEdgeDetection2();
         //testChromakey();

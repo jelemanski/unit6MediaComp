@@ -269,9 +269,64 @@ public class Picture extends SimplePicture
   public void cropAndCopy( Picture sourcePicture, int startSourceRow, int endSourceRow, int startSourceCol, int endSourceCol,
          int startDestRow, int startDestCol )
     {
+    Pixel fromPixel = null;
+    Pixel toPixel = null;
+    Pixel[][] toPixels = this.getPixels2D();
+    Pixel[][] fromPixels = sourcePicture.getPixels2D();
+    for (int fromRow = startSourceRow, toRow = endSourceRow; 
+         fromRow < endSourceRow; 
+         fromRow++, toRow++)
+    {
+      for (int fromCol = startSourceCol, toCol = endSourceCol; 
+           fromCol < endSourceCol;  
+           fromCol++, toCol++)
+      {
+        fromPixel = fromPixels[fromRow][fromCol];
+        toPixel = toPixels[toRow][toCol];
+        toPixel.setColor(fromPixel.getColor());
+      }
+    }
+    
 
         
         
     }
-  
+//     public void posterize()
+//     {
+//     Pixel[][] pixels = this.getPixels2D();
+//     for (Pixel[] rowArray : pixels)
+//     {
+//       for (Pixel pixelObj : rowArray)
+//       {
+//         if (pixelObj <63)
+//         {pixelObj
+//       }
+//     }
+//   }
+   public void jcollage()
+   {
+       //Picture background = new Picture(1000,1000);
+       Picture cover1 = new Picture("kanye.jpg");
+       Picture cover2 = new Picture("kanye.jpg");
+       Picture cover3 = new Picture("kanye.jpg");
+       Picture cover4 = new Picture("kanye.jpg");
+       
+       cover2.mirrorVerticalRightToLeft();
+       cover3.mirrorVertical();
+       cover4.zeroBlue();
+       cover1.cropAndCopy(cover1,418,381,471,472,60,60);
+      
+       
+       this.copy(cover2,0,500);
+       this.copy(cover1,0,0);
+       this.copy(cover4,500,500);
+       this.copy(cover3,500,0);
+       
+       
+       
+       this.write("myCollage.jpg");
+       
+       
+    
+    }
 } // this } is the end of class Picture, put all new methods before this
